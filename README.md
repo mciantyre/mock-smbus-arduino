@@ -1,6 +1,6 @@
 ## mockphysicalsmbus
 
-A sketch to make an Arduino pretend as if it's an SMBUS-compliant battery. Hook the Arduino up to hardware that accepts an SMBUS battery, and it will respond with values when queried. Values are runtime-configurable.
+A sketch to have an Arduino pretend as if it's an SMBUS-compliant battery. Hook the Arduino up to hardware that accepts an SMBUS battery, and it will respond with values when queried. Values are runtime-configurable.
 
 ## Getting started
 
@@ -21,12 +21,12 @@ static smbus_lookup lookups[] = {
 
 `Serial key` is the key you will use to change the values during runtime. The `SMBUS command addr` is a command address available in `commands.h`. See the SMBUS specification for specific command descriptions. Provide an initial value for your parameter as well.
 
-Compile and upload it to an Arduino (tested on Arduino Uno R3). You can open up the serial monitor with a baud rate of `115200`, and you should see the text "Starting up..." Additionally, to change the SMBUS values, the serial monitor should be configured for "No newline endings." 
+Compile and upload it to an Arduino (tested on Arduino Uno R3). Open up the serial monitor with a baud rate of `115200`, and you should see the text "Starting up..." Additionally, to change SMBUS values, the serial monitor must be configured for "No newline endings." 
 
-To change the SMBUS values, use the syntax `[serial_key]=[new_value]`. For instance, if I wanted to change the reported full charge capacity to 6800 mAh, I would send
+To change SMBUS values, use the syntax `[serial_key]=[new_value]`. For instance, if I wanted to change the reported full charge capacity to 6800 mAh, I would send
 
 ```
 FULL_CHARGE_CAP=6800
 ```
 
-using the serial monitor. Note that I used the `Serial key` with no quotes, not the `SMBUS command addr`. If all is successful, the Arduino will respond with the new value, and the new value will be sent to the connected system when quried.
+using the serial monitor. Note that I used the `Serial key` with no quotes, not the `SMBUS command addr`. If all is successful, the Arduino will respond with the new value, and the new value will be sent to the connected system when queried.
